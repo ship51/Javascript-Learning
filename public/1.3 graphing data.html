@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Coding Train: Data/APIs 3</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.3.2/dist/chart.min.js"></script>
+</head>
+
+<body>
+    <h1>Graphing with Chart.js</h1>
+
+    <canvas id="myChart" width="800" height="400"></canvas>
+
+    <script>
+
+        chartIt();
+
+        async function chartIt() {
+
+            const data = await getData();
+            const ctx = document.getElementById('myChart').getContext('2d');
+            const myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: data.xs,
+                    datasets: [{
+                        label: 'Combined Land-Surface Air and Sea-Surface Water Temparature in °C',
+                        fill: false,
+                        data: data.ys,
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            ticks: {
+                                callback: function (value, index, values) {
+                                    return value + '°';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+
+        }
+
+
+        async function getData() {
+
+
+            const xs = [];
+            const ys = [];
+
+            //const response = await fetch('test.csv');
+            const response = await fetch('ZonAnn.Ts+dSST.csv');
+            const data = await response.text();
+            //console.log(data);
+
+            //spliting with line breaks and removing first row, slicing from 2nd row
+            const table = data.split('\n').slice(1);
+            table.forEach(row => {
+                const columns = row.split(',');
+                const year = columns[0];
+                xs.push(year);
+                const temp = columns[1];
+                ys.push(parseFloat(temp) + 14);
+                console.log(year, temp);
+            });
+            return { xs, ys };
+        }
+
+    </script>
+</body>
+
+</html>

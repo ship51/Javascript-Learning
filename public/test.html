@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
+
+
+    <style>
+        #issMap {
+            height: 180px;
+        }
+    </style>
+
+    <title>TEST</title>
+</head>
+
+<body>
+    <h1>TEST: Fetch JSON from API and map Lat Long</h1>
+
+
+    <div id="videolist"></div>
+
+
+    <script>
+        //API: Requesting list of videos 
+        
+        const apiUrlVideo = 'https://codingclubnitm.herokuapp.com/api/v1/video/';
+        async function getVideos() {
+            const response = await fetch(apiUrlVideo);
+            const data = await response.json();
+            console.log(data);
+            showVideos(data);
+        }
+        function showVideos(data) {
+            var row = document.querySelector('#videolist');
+            for (let i = 0; i < data.count; i++) {
+                var myhtml = '<iframe style="width: 200px, height: 200px;" src="' + data.video_data[i].Link + '"></iframe>';
+                row.innerHTML += myhtml;
+            }
+        }
+        getVideos();
+
+
+
+    </script>
+
+
+
+
+
+</body>
+
+</html>
