@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+    <style>
+        #myLocationMap {
+            height: 300px;
+        }
+    </style>
+
+    <title>Selfie App</title>
+</head>
+
+<body>
+    <h1>2.2 Geolocation Web API</h1>
+
+    <h2>Where am I now?</h2>
+    <p> Latitude: <span id="latitude"></span>&deg;<br>
+        Longitude: <span id="longitude"></span>&deg;
+    </p>
+
+
+
+    <div id="myLocationMap"></div>
+
+    <script>
+
+        const mymap = L.map('myLocationMap').setView([0, 0], 1);
+        const marker = L.marker([0, 0]).addTo(mymap);
+        const attribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> Contributors';
+        const tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+        const tiles = L.tileLayer(tileUrl, { attribution });
+        tiles.addTo(mymap);
+
+
+        if ('geolocation' in navigator) {
+            console.log('geolocation is available!');
+            navigator.geolocation.getCurrentPosition(async position => {
+                console.log(position);
+                const lat = position.coords.latitude;
+                const long = position.coords.longitude;
+                console.log(lat);
+                console.log(long);
+                document.getElementById('latitude').textContent = lat;
+                document.getElementById('longitude').textContent = long;
+                mymap.setView([lat, long], 14);
+                marker.setLatLng([lat, long]);
+
+                const data = { lat, long };
+                const options = {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                };
+                const response = await fetch('/api', options);
+                const json = await response.json();
+                console.log(json);
+            });
+        } else {
+            console.log('geolocation is not available!');
+        }
+
+
+    </script>
+</body>
+
+</html>
