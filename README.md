@@ -5,11 +5,12 @@ Learning Javascript from YouTube Channel: The Coding Train
 
 Link of the playlist: <br/>
 https://www.youtube.com/playlist?list=PLRqwX-V7Uu6YxDKpFzf_2D84p0cyk4T7X
-<iframe src="https://www.youtube.com/playlist?list=PLRqwX-V7Uu6YxDKpFzf_2D84p0cyk4T7X" height="220" width="500" title="Youtube Playlist"></iframe>
+
 
 How to get started:
 
 (Make sure you are logged in to Git ('https://git-scm.com/download') using your Github username and email using Git bash or CMD)
+
 
 **1.** Go to Command Prompt and clone the Repository using: 
     ```
