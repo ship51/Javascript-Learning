@@ -41,17 +41,17 @@ git clone <"link of the repo copied from the website">
 
 
 **8.** Follow the steps to commit: <br/>
-    a. Track your changes:heavy_check_mark: .
+   a. Track your changes:heavy_check_mark: . <br/>
     ```
     git add .
-    ``` 
+    ```
 
-    b. Commit your changes .
+   b. Commit your changes .
     ```
     git commit -m "Name of the commit"
     ``` 
     
-    c. Push the committed changes into relevant branch
+   c. Push the committed changes into relevant branch
     ```
     git push origin <branch_name>
     ``` 
