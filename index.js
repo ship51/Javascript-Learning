@@ -11,20 +11,25 @@ database.loadDatabase();
 // database.insert({ name: 'Chad', status: 'YES'});
 // database.insert({ name: 'Max', status: 'NO'});
 
+app.get('/api', (request, response) => {
+    database.find({}, (err, data) =>{
+        if (err){
+            response.end();
+            return;
+        }
+        response.json(data);
+    }); 
+});
+
+
 app.post('/api', (request, response) => {
-    console.log('I got a request!');
+    //console.log('I got a request!');
     console.log(request.body);
     const data = request.body;
+    
     const timestamp = Date.now();
     data.timestamp = timestamp;
-
     database.insert(data);
-
-    response.json({
-        status: 'Success',
-        latitude: data.lat,
-        longitude: data.long,
-        timestamp: timestamp
-    });
+    response.json(data);
 });
 
