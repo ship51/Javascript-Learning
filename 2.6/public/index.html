@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.3.1/p5.min.js"
+        integrity="sha512-gQVBYBvfC+uyor5Teonjr9nmY1bN+DlOCezkhzg4ShpC5q81ogvFsr5IV4xXAj6HEtG7M1Pb2JCha97tVFItYQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.min.js"
+        integrity="sha512-hAm8hj9/2EIonvS+sf0G3anaY8zYHv6q7ktNlLTg8wLwFvhUavnDdH0gif8SA3U1kN0lyKBWbf1wD4+5BfaMMA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        #myLocationMap {
+            height: 300px;
+        }
+    </style>
+    <title>2.6</title>
+</head>
+
+<body>
+    <h1>2.6</h1>
+
+    <h3><a href="index.html">Index</a> | <a href="all.html">List of all entries</a></h3>
+
+
+    <h2>Where am I now?</h2>
+    <p> Latitude: <span id="latitude"></span>&deg;<br>
+        Longitude: <span id="longitude"></span>&deg;
+    </p>
+
+    <h2>Enter DETAILS: </h2><br>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name"><br><br>
+
+    <label for="age">Age:</label>
+    <input type="number" id="age" name="age"><br><br>
+
+    <button id="submit">Submit</button>
+
+    <script>
+
+        function setup() {
+            noCanvas();
+            const video = createCapture(VIDEO);
+            video.size(320, 240);
+
+            let lat, long;
+            document.getElementById('submit').addEventListener('click', async event => {
+                const name = document.getElementById('name').value;
+                const age = document.getElementById('age').value;
+                video.loadPixels();
+                const image64 = video.canvas.toDataURL();
+                const data = { lat, long, name, age, image64};
+                const options = {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                };
+                const response = await fetch('/api', options);
+                const json = await response.json();
+                console.log(json);
+            });
+
+            if ('geolocation' in navigator) {
+                console.log('geolocation is available!');
+                navigator.geolocation.getCurrentPosition(async position => {
+
+                    lat = position.coords.latitude;
+                    long = position.coords.longitude;
+                    //console.log(lat);
+                    //console.log(long);
+                    document.getElementById('latitude').textContent = lat;
+                    document.getElementById('longitude').textContent = long;
+
+                });
+            } else {
+                console.log('geolocation is not available!');
+            }
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All entries</title>
+</head>
+<body>
+    <h1>List of all entries</h1>
+
+    <h3><a href="index.html">Index</a> | <a href="all.html">List of all entries</a></h3>
+
+    <script>
+        getData();
+        async function getData() {
+
+            const response = await fetch('/api');
+            //console.log(response);
+            const data = await response.json();
+
+            for (item of data){
+                const root = document.createElement('div');
+                const person = document.createElement('div');
+                const geo = document.createElement('div');
+                const date = document.createElement('div');
+                const image = document.createElement('img');
+
+                person.textContent = `Name: ${item.name}, Age: ${item.age}`;
+                geo.textContent = `Geolocation: ${item.lat} °, ${item.long} °`;
+                const dateString = new Date(item.timestamp).toLocaleString();
+                date.textContent = dateString;
+                image.src = item.image64;
+
+                root.append(person, geo, date, image);
+                document.body.append(root);
+                
+            }
+            console.log(data);
+        }
+        
+    </script>
+</body>
+</html>
