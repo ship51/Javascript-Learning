@@ -36,7 +36,7 @@ A message "Listening at 3000" means that the server is set up successfully.
 
 <br/>
 
-**6.** Go to any browser, and type "localhost:3000" in the address bar. 
+**6.** Go to any browser, and type ``localhost:3000`` in the address bar. 
 This loads index.html in the public folder
 
 <br/>
@@ -45,7 +45,7 @@ This loads index.html in the public folder
 
 <br/>
 
-**8.** Follow the steps to commit ✔️ : 
+**8.** Follow the steps to commit ✔️ : <br/>
 a. Stage your changes .
 ```git add .```
 
