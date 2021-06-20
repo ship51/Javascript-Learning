@@ -25,12 +25,12 @@ https://www.youtube.com/playlist?list=PLRqwX-V7Uu6YxDKpFzf_2D84p0cyk4T7X
 The repository is saved in the same directory as the present working directory in command prompt.
 
 
-2. Install [node.js](https://nodejs.org/en/) for a virtual server from 
+2. Install [node.js](https://nodejs.org/en/) to setup a virtual server.
 
 
 
 3. Open up [VS Code](https://code.visualstudio.com/) (or install if you haven't yet).
-Has been fun to work with it, and I am really loving it; wish I had realised earlier.
+Has been fun to work with it, and I am really loving it, wish I had realised earlier!
 
 
 4. Open VS Code: You can even do step 1 now. Open the cloned repository or switch your directory using CMD.
