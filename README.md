@@ -47,6 +47,7 @@ This loads index.html in the public folder
 
 **8.** Follow the steps to commit ✔️ : <br/>
 a. Stage your changes .
+
 ```git add .```
 
 b. Commit your changes  (name your commit in double quotes).
