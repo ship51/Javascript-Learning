@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Homepage</title>
+</head>
+
+<body>
+    <h1>This is the homepage of the Data Selfie App</h1>
+
+    <h5>Made by <a href="https://github.com/ship51">Shivam Pandit</a></h5>
+
+    <div>
+        <p>Links to the modules and exercises will be added</p>
+    </div>
+    
+    <p>Where are you now? </p>
+    <p>
+        latitude: <span id="latitude"></span>&deg;<br />
+        longitude: <span id="longitude"></span>&deg;
+    </p>
+    <label for="comment">Leave a comment: </label>
+    <input id="comment" value="Good/Great" />
+
+    <button id="submit">submit</button>
+    <script>
+        let lat, lon;
+        const button = document.getElementById('submit');
+        button.addEventListener('click', async event => {
+            const comment = document.getElementById('comment').value;
+            const data = { lat, lon, comment };
+            const options = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            };
+            const response = await fetch('/api', options);
+            const json = await response.json();
+            console.log(json);
+        });
+
+        if ('geolocation' in navigator) {
+            console.log('geolocation available');
+            navigator.geolocation.getCurrentPosition(async position => {
+                lat = position.coords.latitude;
+                lon = position.coords.longitude;
+                document.getElementById('latitude').textContent = lat;
+                document.getElementById('longitude').textContent = lon;
+            });
+        } else {
+            console.log('geolocation not available');
+        }
+    </script>
+</body>
+
+</html>
