@@ -2,21 +2,27 @@
 
 Learning Javascript from YouTube Channel: **The Coding Train**
 
-`<br/>`
+<br/>
 
-Link of the playlist : `<br/>`
+Link of the playlist :  
+
+<br/>
+
 https://www.youtube.com/playlist?list=PLRqwX-V7Uu6YxDKpFzf_2D84p0cyk4T7X
 
-`<br/>`
+<br/>
 
 How to get started:
 
 (Make sure you are logged in to Git ('https://git-scm.com/download') using your Github username and email using Git bash or CMD)
 
-**1.** Go to Command Prompt and clone the Repository using (not in double quotes):`<br/>`
+**1.** Go to Command Prompt and clone the Repository using (not in double quotes)
 ``git clone <"link of the repo copied from the website">``
 
-`<br/>`
+```
+<br/>
+```
+
 The repository is saved in the same directory as the present working directory in command prompt.
 
 <br/>
@@ -51,18 +57,14 @@ This loads index.html in the public folder
 <br/>
 
 **8.** Follow the steps to commit ✔️ : `<br/>`
-	a. Track your changes .
-	``git add .``
+a. Stage your changes .
+``git add .``
 
-```
 b. Commit your changes  (name your commit in double quotes).
-```
 
 ``git commit -m "Name of the commit"``
 
-```
 c. Push the committed changes into relevant branch
-```
 
 ``git push origin <branch_name>``
 

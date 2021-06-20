@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.3.1/p5.min.js"
+        integrity="sha512-gQVBYBvfC+uyor5Teonjr9nmY1bN+DlOCezkhzg4ShpC5q81ogvFsr5IV4xXAj6HEtG7M1Pb2JCha97tVFItYQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.min.js"
+        integrity="sha512-hAm8hj9/2EIonvS+sf0G3anaY8zYHv6q7ktNlLTg8wLwFvhUavnDdH0gif8SA3U1kN0lyKBWbf1wD4+5BfaMMA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        #myLocationMap {
+            height: 300px;
+        }
+    </style>
+    <title>2.6</title>
+</head>
+
+<body>
+    <h1>2.6</h1>
+
+    <h3><a href="index.html">Index</a> | <a href="logs/all.html">List of all entries</a></h3>
+
+
+    <h2>Where am I now?</h2>
+    <p> Latitude: <span id="latitude"></span>&deg;<br>
+        Longitude: <span id="longitude"></span>&deg;
+    </p>
+
+    <h2>Enter DETAILS: </h2><br>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name"><br><br>
+
+    <label for="age">Age:</label>
+    <input type="number" id="age" name="age"><br><br>
+
+    <button id="submit">Submit</button>
+
+    <script src="sketch.js"></script>
+
+</body>
+
+</html>
