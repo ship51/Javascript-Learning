@@ -4,7 +4,7 @@ Learning Javascript from YouTube Channel: **The Coding Train**
 
 <br/>
 
-Link of the playlist :  
+Link of the playlist :
 
 <br/>
 
@@ -19,21 +19,17 @@ How to get started:
 **1.** Go to Command Prompt and clone the Repository using (not in double quotes)
 ``git clone <"link of the repo copied from the website">``
 
-```
-<br/>
-```
-
 The repository is saved in the same directory as the present working directory in command prompt.
 
 <br/>
 
-**2.** Install node.js for a virtual server from `<br/>`
+**2.** Install node.js for a virtual server from 
 https://nodejs.org/en/
 
 <br/>
 
 **3.** Open up VS Code (or install if you haven't yet):
-https://code.visualstudio.com/  `<br/>`
+https://code.visualstudio.com/ 
 Has been fun to work with it, and I am really loving it; wish I had realised earlier.
 
 <br/>
@@ -42,12 +38,12 @@ Has been fun to work with it, and I am really loving it; wish I had realised ear
 
 <br/>
 
-**5.** Type "node index.js" in Command Prompt to get the server up and running. `<br/>`
+**5.** Type "node index.js" in Command Prompt to get the server up and running. 
 A message "Listening at 3000" means that the server is set up successfully.
 
 <br/>
 
-**6.** Go to any browser, and type "localhost:3000" in the address bar. `<br/>`
+**6.** Go to any browser, and type "localhost:3000" in the address bar. 
 This loads index.html in the public folder
 
 <br/>
@@ -56,7 +52,7 @@ This loads index.html in the public folder
 
 <br/>
 
-**8.** Follow the steps to commit ✔️ : `<br/>`
+**8.** Follow the steps to commit ✔️ : 
 a. Stage your changes .
 ``git add .``
 
