@@ -1,0 +1,26 @@
+{
+    "manifest_version": 2,
+    "name": "Chrome Exkittension",
+    "version": "1.100",
+    "web_accessible_resources": [
+        "kittens/*.jpg"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "kitten.js"
+            ]
+        }
+    ],
+    "background": {
+        "scripts": [
+            "background.js"
+        ]
+    },
+    "browser_action": {
+        "default_icon": "icon.png"
+    }
+}
